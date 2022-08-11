@@ -2,20 +2,18 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-    - name: Build the Docker image
-    - run: docker build . --file Dockerfile.dev --tag eapriala/docker-react
-    - run: docker run -e CI=true eapriala/docker-react npm test
-      
+      - uses: actions/checkout@v3
+      - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile.dev --tag eapriala/docker-react
+      - name: Run the test suites
+      - run: docker run -e CI=true eapriala/docker-react npm test
