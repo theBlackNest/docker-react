@@ -16,4 +16,4 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile.dev --tag eapriala/docker-react
       - name: Run the test suites
-      - run: docker run -e CI=true eapriala/docker-react npm test
+        run: docker run -e CI=true eapriala/docker-react npm test
