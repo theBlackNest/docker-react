@@ -11,7 +11,6 @@ function App() {
         </p>
         <p>Hello all you happy people!</p>
         <p>Goodbye all you happy people!</p>
-        <p>Test</p>
         <a
           className="App-link"
           href="https://reactjs.org"
